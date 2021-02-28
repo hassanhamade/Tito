@@ -41,8 +41,8 @@ spec:
       - destination:
           host: titofe-service
           subset: V05
-        weight: 50
+        weight: 10
       - destination:
           host: titofe-service
           subset: V1
-        weight: 50
+        weight: 90

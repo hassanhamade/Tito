@@ -131,7 +131,7 @@ spec:
   selector:                # key/value, label permettant de definir le pod cible (doit etre danslabels du pod)
     type: tito-fe
     tier: frontend
-  type: LoadBalancer
+  type: ClusterIP
 ---
 #Second version for Istio demo
 apiVersion: apps/v1
