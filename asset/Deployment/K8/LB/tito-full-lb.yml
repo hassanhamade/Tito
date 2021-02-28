@@ -92,7 +92,7 @@ spec:
     spec:
       containers:
         - name: tito
-          image: vmeoc/tito-fe:V1.9.4
+          image: vmeoc/tito-fe:V2.4
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 80

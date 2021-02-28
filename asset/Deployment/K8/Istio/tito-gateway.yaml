@@ -1,0 +1,48 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: app-gateway-tito
+spec:
+  selector:
+    istio: ingressgateway 
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: titofe-service
+spec:
+  host: titofe-service
+  subsets:
+  - name: V05
+    labels:
+      version: V05
+  - name: V1
+    labels:
+      version: V1
+---      
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: titofe-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - app-gateway-tito
+  http:
+    - route:
+      - destination:
+          host: titofe-service
+          subset: V05
+        weight: 50
+      - destination:
+          host: titofe-service
+          subset: V1
+        weight: 50
