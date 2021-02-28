@@ -1,0 +1,1 @@
+The yaml file that deploys two version of Tito front-end pods is deployed with a front-end service of type ClusterIP and not Load-Balancer. Since the Pods are meant to be accessed through an Ingress ressource, no need to assign a Lobad-Balancer IP address.
