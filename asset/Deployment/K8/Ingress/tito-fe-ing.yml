@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: titofe-service
+  labels:
+    app: tito
+    stage: dev
+spec:
+  rules:
+   - host: tito.app.cpod-modaps.az-rbx.cloud-garage.net #set your ingress URL here
+     http:
+       paths:
+       - path:
+         backend:
+           serviceName: titofe-service
+           servicePort: 80
