@@ -1,0 +1,3 @@
+Deploy in sequence: 1) sql pod, 2) sql service, 3) frontend rc, 4) fe service
+then deny 5) all ingress np, 6) allow fe to db np and finally 7) ingress to fe np
+deploy an alpine shell container to and install mysql client on it to do all the curl, ping and mysql requests
